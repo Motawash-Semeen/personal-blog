@@ -10,7 +10,7 @@
                     <div class="card-header p-0">
                         <div class="blog-media">
                             <img src="assets/imgs/blog-2.jpg" alt="" class="w-100">
-                            <a href="#" class="badge badge-primary">#Placeat</a>
+                            
                         </div>
                     </div>
                     <div class="card-body px-0">
@@ -32,7 +32,7 @@
                     <div class="card-header p-0">
                         <div class="blog-media">
                             <img src="assets/imgs/blog-3.jpg" alt="" class="w-100">
-                            <a href="#" class="badge badge-primary">#dolores</a>
+                            
                         </div>
                     </div>
                     <div class="card-body px-0">
@@ -55,7 +55,6 @@
                     <div class="card-header p-0">
                         <div class="blog-media">
                             <img src="assets/imgs/blog-4.jpg" alt="" class="w-100">
-                            <a href="#" class="badge badge-primary">#amet</a>
                         </div>
                     </div>
                     <div class="card-body px-0">
@@ -77,7 +76,6 @@
                     <div class="card-header p-0">
                         <div class="blog-media">
                             <img src="assets/imgs/blog-5.jpg" alt="" class="w-100">
-                            <a href="#" class="badge badge-primary">#lorem</a>
                         </div>
                     </div>
                     <div class="card-body px-0">
@@ -100,7 +98,7 @@
                     <div class="card-header p-0">
                         <div class="blog-media">
                             <img src="assets/imgs/blog-1.jpg" alt="" class="w-100">
-                            <a href="#" class="badge badge-primary">#lipsum</a>
+                            
                         </div>
                     </div>
                     <div class="card-body px-0">
@@ -122,7 +120,6 @@
                     <div class="card-header p-0">
                         <div class="blog-media">
                             <img src="assets/imgs/blog-7.jpg" alt="" class="w-100">
-                            <a href="#" class="badge badge-primary">#Elit</a>
                         </div>
                     </div>
                     <div class="card-body px-0">
@@ -221,7 +218,6 @@
             <div class="card-header p-0">
                 <div class="blog-media">
                     <img src="assets/imgs/blog-6.jpg" alt="" class="w-100">
-                    <a href="#" class="badge badge-primary">#Lorem</a>
                 </div>
             </div>
             <div class="card-body px-0">

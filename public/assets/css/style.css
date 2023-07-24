@@ -12180,7 +12180,7 @@ section .section-secondary-title {
   
   .container-login100 {
     width: 100%;  
-    min-height: 100vh;
+    min-height: 80vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -12293,7 +12293,7 @@ section .section-secondary-title {
     display: block;
     width: 100%;
     position: absolute;
-    top: 16px;
+    top: -5px;
     left: 0px;
     padding-left: 5px;
   

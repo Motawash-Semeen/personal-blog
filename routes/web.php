@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\BackendController;
+use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
+Route::get('/', [FrontendController::class,'home']);
+Route::get('/posts', [FrontendController::class,'posts']);
+Route::get('/contact', [FrontendController::class,'contact']);
+Route::get('/post', [FrontendController::class,'singlePost']);
+Route::get('/author', [FrontendController::class,'author']);
+Route::get('/login', [FrontendController::class, 'login'])->name('login');
+Route::post('/login', [AdminController::class, 'login']);
+Route::get('/logout', [AdminController::class, 'logout']);
+Route::get('/register', [FrontendController::class, 'register']);
+Route::post('/register', [AdminController::class, 'register']);
+
+
+Route::prefix('admin')->middleware(['logincheck'])->group(function () {
+    Route::get('/', [BackendController::class, 'dashboard']);
+    Route::get('/addrole', [BackendController::class, 'addRole']);
+    Route::post('/addrole', [RoleController::class, 'storeRole']);
 });
-Route::get('/posts', function () {
-    return view('frontend.pages.allpost');
-});
-Route::get('/contact', function () {
-    return view('frontend.pages.contact');
-});
-Route::get('/post', function () {
-    return view('frontend.pages.post');
-});
-Route::get('/author', function () {
-    return view('frontend.pages.author');
-});
-Route::get('/login', function () {
-    return view('frontend.pages.login');
-});
-Route::get('/register', function () {
-    return view('frontend.pages.register');
-});
+
 
 

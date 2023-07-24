@@ -22,10 +22,10 @@ class RolePermission extends Seeder
         $permission = Permission::create(['name' => 'Create User']);
         $permission = Permission::create(['name' => 'Edit User']);
         $permission = Permission::create(['name' => 'Delete User']);
-        $permission = Permission::create(['name' => 'Category List']);
-        $permission = Permission::create(['name' => 'Create Category']);
-        $permission = Permission::create(['name' => 'Edit Category']);
-        $permission = Permission::create(['name' => 'Delete Category']);
+        $permission = Permission::create(['name' => 'Role List']);
+        $permission = Permission::create(['name' => 'Create Role']);
+        $permission = Permission::create(['name' => 'Edit Role']);
+        $permission = Permission::create(['name' => 'Delete Role']);
         $permission = Permission::create(['name' => 'Post List']);
         $permission = Permission::create(['name' => 'Create Post']);
         $permission = Permission::create(['name' => 'Edit Post']);
