@@ -51,7 +51,15 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Role</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addrole') }}">Add Role</a></li>
-                      <li><i class="menu-icon ti-view-list-alt"></i><a href="page-register.html">Manage Role</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managerole') }}">Manage Role</a></li>
+                      
+                  </ul>
+              </li>
+              <li class="menu-item-has-children dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>User</a>
+                  <ul class="sub-menu children dropdown-menu">
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addrole') }}">Add User</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managerole') }}">Manage User</a></li>
                       
                   </ul>
               </li>

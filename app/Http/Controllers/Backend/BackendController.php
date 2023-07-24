@@ -12,10 +12,5 @@ class BackendController extends Controller
     {
         return view('backend.pages.dashboard');
     }
-    public function addRole()
-    {
-        
-        $permissions = Permission::all();
-        return view('backend.pages.addrole', compact('permissions'));
-    }
+    
 }

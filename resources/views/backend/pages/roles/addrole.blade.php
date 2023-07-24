@@ -45,11 +45,11 @@
                             </div>
                     </div>
                     <div class="row form-group my-4">
-                        <div class="col col-md-3"><label class=" form-control-label">Permissions</label></div>
+                        <div class="col col-md-3 col-12"><label class=" form-control-label">Permissions</label></div>
                         <div class="col col-md-9">
                             <div class="row">
 
-                                <div class="col col-md-12 my-4">
+                                <div class="col col-12 my-4">
                                     <div class="form-check">
                                         <div class="checkbox">
                                             <label for="checkbox1" class="form-check-label ">
@@ -69,7 +69,7 @@
                                         $i++;
                                     @endphp
                                     @if ($i == 1 or $i == 5 or $i == 9)
-                                        <div class="col col-md-3">
+                                        <div class="col col-lg-3 col-sm-4 col-6 my-2">
                                             <div class="form-check">
                                     @endif
 
@@ -88,62 +88,17 @@
                                     @endif
                         @endforeach
 
-                        {{-- <div class="col col-md-3">
-
-                            <div class="form-check">
-                                <div class="checkbox">
-                                    <label for="checkbox1" class="form-check-label ">
-                                        <input type="checkbox" id="checkbox1" name="permissions[]" value="option1"
-                                            class="form-check-input checkbox-item">Option 1
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label for="checkbox2" class="form-check-label ">
-                                        <input type="checkbox" id="checkbox2" name="permissions[]" value="option2"
-                                            class="form-check-input checkbox-item"> Option 2
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label for="checkbox3" class="form-check-label ">
-                                        <input type="checkbox" id="checkbox3" name="permissions[]" value="option3"
-                                            class="form-check-input checkbox-item"> Option 3
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-md-3">
-
-                            <div class="form-check">
-                                <div class="checkbox">
-                                    <label for="checkbox1" class="form-check-label ">
-                                        <input type="checkbox" id="checkbox1" name="permissions[]" value="option1"
-                                            class="form-check-input checkbox-item">Option 1
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label for="checkbox2" class="form-check-label ">
-                                        <input type="checkbox" id="checkbox2" name="permissions[]" value="option2"
-                                            class="form-check-input checkbox-item"> Option 2
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label for="checkbox3" class="form-check-label ">
-                                        <input type="checkbox" id="checkbox3" name="permissions[]" value="option3"
-                                            class="form-check-input checkbox-item"> Option 3
-                                    </label>
-                                </div>
-                            </div>
-                        </div> --}}
+                        
                     </div>
 
             </div>
 
         </div>
         <div class="row form-group my-4 align-items-end justify-content-end">
-            <button type="submit" class="btn btn-primary btn-sm mx-2">
+            <button type="submit" class="btn btn-primary btn-sm">
                 <i class="fa fa-dot-circle-o"></i> Submit
             </button>
-            <button type="reset" class="btn btn-danger btn-sm">
+            <button type="reset" class="btn btn-danger btn-sm mx-3">
                 <i class="fa fa-ban"></i> Reset
             </button>
         </div>

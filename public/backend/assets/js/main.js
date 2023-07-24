@@ -1,52 +1,71 @@
 $.noConflict();
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
+    "use strict";
 
-	"use strict";
+    [].slice
+        .call(document.querySelectorAll("select.cs-select"))
+        .forEach(function (el) {
+            new SelectFx(el);
+        });
 
-	[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-		new SelectFx(el);
-	} );
+    jQuery(".selectpicker").selectpicker;
 
-	jQuery('.selectpicker').selectpicker;
+    $("#menuToggle").on("click", function (event) {
+        $("body").toggleClass("open");
+    });
 
+    $(".search-trigger").on("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $(".search-trigger").parent(".header-left").addClass("open");
+    });
 
-	$('#menuToggle').on('click', function(event) {
-		$('body').toggleClass('open');
-	});
+    $(".search-close").on("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $(".search-trigger").parent(".header-left").removeClass("open");
+    });
 
-	$('.search-trigger').on('click', function(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		$('.search-trigger').parent('.header-left').addClass('open');
-	});
+    // $('.user-area> a').on('click', function(event) {
+    // 	event.preventDefault();
+    // 	event.stopPropagation();
+    // 	$('.user-menu').parent().removeClass('open');
+    // 	$('.user-menu').parent().toggleClass('open');
+    // });
+    $("#select-all").click(function () {
+        // Get the current state of the "Select All" checkbox
+        const selectAllChecked = $(this).prop("checked");
 
-	$('.search-close').on('click', function(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		$('.search-trigger').parent('.header-left').removeClass('open');
-	});
+        // Set all other checkboxes to the same state as the "Select All" checkbox
+        $(".checkbox-item").prop("checked", selectAllChecked);
+    });
 
-	// $('.user-area> a').on('click', function(event) {
-	// 	event.preventDefault();
-	// 	event.stopPropagation();
-	// 	$('.user-menu').parent().removeClass('open');
-	// 	$('.user-menu').parent().toggleClass('open');
-	// });
-	$("#select-all").click(function() {
-		// Get the current state of the "Select All" checkbox
-		const selectAllChecked = $(this).prop("checked");
-
-		// Set all other checkboxes to the same state as the "Select All" checkbox
-		$(".checkbox-item").prop("checked", selectAllChecked);
+    // When any other checkbox is clicked
+    $(".checkbox-item").click(function () {
+        // Check if all checkboxes are checked and update the "Select All" checkbox accordingly
+        const allCheckboxesChecked =
+            $(".checkbox-item").length === $(".checkbox-item:checked").length;
+        $("#select-all").prop("checked", allCheckboxesChecked);
+    });
 });
 
-// When any other checkbox is clicked
-$(".checkbox-item").click(function() {
-		// Check if all checkboxes are checked and update the "Select All" checkbox accordingly
-		const allCheckboxesChecked = $(".checkbox-item").length === $(".checkbox-item:checked").length;
-		$("#select-all").prop("checked", allCheckboxesChecked);
-});
-
+function permissionShow(param, id) {
+    var permission = document.getElementById("permission" + id);
+    var showPerIcon = document.getElementById("showPerIcon" + id);
+    var hidePerIcon = document.getElementById("hidePerIcon" + id);
+    if (param === "show") {
+        //console.log("#permission" + id);
+        permission.classList.remove("hidden");
+        showPerIcon.classList.add("hidden");
+        hidePerIcon.classList.remove("hidden");
+    } else {
+        permission.classList.add("hidden");
+        showPerIcon.classList.remove("hidden");
+        hidePerIcon.classList.add("hidden");
+    }
+}
+var close = document.querySelector(".close").addEventListener("click", function () {
+    document.querySelector(".alert-dismissible").style.display = "none";
 });
 

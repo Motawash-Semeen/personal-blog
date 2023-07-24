@@ -1589,7 +1589,12 @@ header .form-inline {
 
 .breadcrumbs {
   margin-top: 0; }
-
+.hidden{
+  display: none !important;
+}
+.top-msg{
+  z-index: 9999;
+}
 /* Tabs */
 .nav-tabs a.active {
   color: #555;

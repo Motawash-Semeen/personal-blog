@@ -31,8 +31,12 @@ Route::post('/register', [AdminController::class, 'register']);
 
 Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/', [BackendController::class, 'dashboard']);
-    Route::get('/addrole', [BackendController::class, 'addRole']);
+    Route::get('/addrole', [RoleController::class, 'addRole']);
     Route::post('/addrole', [RoleController::class, 'storeRole']);
+    Route::get('/managerole', [RoleController::class, 'manageRole']);
+    Route::get('/deleterole/{id}', [RoleController::class, 'deleteRole']);
+    Route::get('/editrole/{id}', [RoleController::class, 'editRole']);
+    Route::post('/editrole/{id}', [RoleController::class, 'updateRole']);
 });
 
 
