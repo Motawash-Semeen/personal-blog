@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,13 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/deleterole/{id}', [RoleController::class, 'deleteRole']);
     Route::get('/editrole/{id}', [RoleController::class, 'editRole']);
     Route::post('/editrole/{id}', [RoleController::class, 'updateRole']);
+
+    Route::get('/adduser', [UserController::class, 'addUser']);
+    Route::post('/adduser', [UserController::class, 'storeUser']);
+    Route::get('/manageuser', [UserController::class, 'manageUser']);
+    Route::get('/deleteuser/{id}', [UserController::class, 'deleteUser']);
+    Route::get('/edituser/{id}', [UserController::class, 'editUser']);
+    Route::post('/edituser/{id}', [UserController::class, 'updateUser']);
 });
 
 

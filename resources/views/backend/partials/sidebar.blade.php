@@ -11,8 +11,8 @@
 
       <div id="main-menu" class="main-menu collapse navbar-collapse">
           <ul class="nav navbar-nav">
-              <li class="active">
-                  <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+              <li class="{{ classActivePath('admin') }}">
+                  <a href="{{ url('admin') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
               </li>
               <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
               <li class="menu-item-has-children dropdown">
@@ -47,19 +47,19 @@
               </li>
 
               <h3 class="menu-title">Function</h3><!-- /.function-title -->
-              <li class="menu-item-has-children dropdown">
+              <li class="menu-item-has-children dropdown {{ classActivePath('admin/managerole') }}{{ classActivePath('admin/editrole') }}{{ classActivePath('admin/addrole') }}">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Role</a>
                   <ul class="sub-menu children dropdown-menu">
-                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addrole') }}">Add Role</a></li>
-                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managerole') }}">Manage Role</a></li>
+                      <li class="{{ classActivePath('admin/addrole') }}"><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addrole') }}">Add Role</a></li>
+                      <li class="{{ classActivePath('admin/managerole') }}{{ classActivePath('admin/editrole') }}"><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managerole') }}">Manage Role</a></li>
                       
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>User</a>
                   <ul class="sub-menu children dropdown-menu">
-                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addrole') }}">Add User</a></li>
-                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managerole') }}">Manage User</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/adduser') }}">Add User</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/manageuser') }}">Manage User</a></li>
                       
                   </ul>
               </li>
@@ -76,3 +76,12 @@
       </div><!-- /.navbar-collapse -->
   </nav>
 </aside>
+
+@php
+    // Custom helper function to add an active class to navigation links
+function classActivePath($path)
+{
+    return Request::is($path) ? 'active' : '';
+}
+
+@endphp
