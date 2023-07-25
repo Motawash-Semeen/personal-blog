@@ -41,13 +41,20 @@
                     </div>
                     <div class="col-12 col-md-9">
                         <input type="text" id="text-input" name="name" placeholder="Joe Doe" class="form-control" value="{{ $user->name }}">
+                        @error('name')
+                        <p class="text-danger m-0">Please Provide Your Name!!</p>
+                    @enderror
                     </div>
+                    
                 </div>
                 <div class="row form-group my-4">
                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">User Email</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <input type="email" id="text-input" name="email" placeholder="abc@hotmail.com" class="form-control" value="{{ $user->email }}">
+                        @error('email')
+                        <p class="text-danger m-0">Please Provide Your Valid Email!!</p>
+                    @enderror
                     </div>
                 </div>
                 <div class="row form-group my-4">
@@ -72,6 +79,9 @@
                             @endforeach
                             
                         </select>
+                        @error('role')
+                        <p class="text-danger m-0">Please Select a Role!!</p>
+                    @enderror
                     </div>
                 </div>
         </div>

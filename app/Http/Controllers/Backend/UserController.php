@@ -36,6 +36,7 @@ class UserController extends Controller
             $user->image = $filename;
         }	
         $user->save();
+        session()->flash('message', 'User Added Successfully');
         return redirect('admin/manageuser');
     }
     public function manageUser()
@@ -77,6 +78,7 @@ class UserController extends Controller
             $user->image = $filename;
         }	
         $user->save();
+        session()->flash('message', 'User Updated Successfully');
         return redirect('admin/manageuser');
     }
 }

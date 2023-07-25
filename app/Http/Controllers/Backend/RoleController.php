@@ -24,12 +24,15 @@ class RoleController extends Controller
         
         $role = new Role();
         $role->name = $request->name;
-        foreach ($request->permissions as $permission) {
-            $role->givePermissionTo($permission);
+        if ($request->permissions) {
+            foreach ($request->permissions as $permission) {
+                $role->givePermissionTo($permission);
+            }
         }
+        
         $role->save();
         session()->flash('message', 'Role created successfully!');
-        return redirect()->back();
+        return redirect('admin/managerole');
     }
     public function manageRole()
     {
@@ -49,7 +52,13 @@ class RoleController extends Controller
         ]);
         $role = Role::find($id);
         $role->name = $request->name;
-        $role->syncPermissions($request->permissions);
+        if ($request->permissions) {
+            $role->syncPermissions($request->permissions);
+        }
+        else{
+            $role->syncPermissions(null);
+        }
+        
         $role->save();
         session()->flash('message', 'Role updated successfully!');
         return redirect('/admin/managerole');

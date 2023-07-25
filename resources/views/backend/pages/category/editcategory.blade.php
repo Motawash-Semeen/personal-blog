@@ -21,16 +21,16 @@
 
     <div class="content mt-3">
         @if (session()->has('message'))
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-
-                    <span class="badge badge-pill badge-success">{{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-            </div>
-        @endif
+  <div class="col-sm-12">
+      <div class="alert  alert-success alert-dismissible fade show" role="alert">
+        
+          <span class="badge badge-pill badge-success">{{ session()->get('message') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+  </div>
+@endif
         <div class="card">
             <div class="card-body card-block">
                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -40,19 +40,20 @@
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Role Name</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="text-input" name="name" placeholder="Editor" class="form-control">
-                        </div>
+                            <input type="text" id="text-input" name="name"
+                                placeholder="Editor" class="form-control" value="{{ $role->name }}">
+                            </div>
                     </div>
                     <div class="row form-group my-4">
                         <div class="col col-md-3 col-12"><label class=" form-control-label">Permissions</label></div>
                         <div class="col col-md-9">
                             <div class="row">
-
                                 <div class="col col-12 my-4">
                                     <div class="form-check">
                                         <div class="checkbox">
                                             <label for="checkbox1" class="form-check-label ">
-                                                <input type="checkbox" id="select-all" name="permissions[]" value=""
+                                                <input type="checkbox" id="select-all" name="permissions[]"
+                                                value=""
                                                     class="form-check-input ">Select All
                                             </label>
                                         </div>
@@ -71,23 +72,25 @@
                                             <div class="form-check">
                                     @endif
 
-
-
                                     <div class="checkbox">
                                         <label for="{{ $permission->name }}" class="form-check-label ">
-                                            <input type="checkbox" id="{{ $permission->name }}" name="permissions[]"
-                                                value="{{ $permission->name }}"
-                                                class="form-check-input checkbox-item">{{ $permission->name }}
+                                            <input type="checkbox" id="{{ $permission->name }}" name="permissions[]" value="{{ $permission->name }}"
+                                                class="form-check-input checkbox-item" 
+                                                @if ($role->hasPermissionTo($permission->name))
+                                                   checked
+                                                  
+                                                @endif
+                                                >{{ $permission->name }}
                                         </label>
                                     </div>
                                     @if ($i == 4 or $i == 8 or $i == 12)
-                            </div>
-
-                        </div>
-                        @endif
+                                  </div>
+                                  
+                                </div>
+                                    @endif
                         @endforeach
 
-
+                        
                     </div>
 
             </div>

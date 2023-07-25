@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\BackendController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -45,6 +47,20 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/deleteuser/{id}', [UserController::class, 'deleteUser']);
     Route::get('/edituser/{id}', [UserController::class, 'editUser']);
     Route::post('/edituser/{id}', [UserController::class, 'updateUser']);
+
+    Route::get('/addpost', [PostController::class, 'addPost']);
+    Route::post('/addpost', [PostController::class, 'storePost']);
+    Route::get('/managepost', [PostController::class, 'managePost']);
+    Route::get('/deletepost/{id}', [PostController::class, 'deletePost']);
+    Route::get('/editpost/{id}', [PostController::class, 'editPost']);
+    Route::post('/editpost/{id}', [PostController::class, 'updatePost']);
+
+    Route::get('/addcategory', [CategoryController::class, 'addCate']);
+    Route::post('/addcategory', [CategoryController::class, 'storeCate']);
+    Route::get('/managecategory', [CategoryController::class, 'manageCate']);
+    Route::get('/deletecategory/{id}', [CategoryController::class, 'deleteCate']);
+    Route::get('/editcategory/{id}', [CategoryController::class, 'editCate']);
+    Route::post('/editcategory/{id}', [CategoryController::class, 'updateCate']);
 });
 
 

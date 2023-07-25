@@ -55,11 +55,19 @@
                       
                   </ul>
               </li>
-              <li class="menu-item-has-children dropdown">
+              <li class="menu-item-has-children dropdown {{ classActivePath('admin/manageuser') }}{{ classActivePath('admin/edituser') }}{{ classActivePath('admin/adduser') }}">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>User</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/adduser') }}">Add User</a></li>
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/manageuser') }}">Manage User</a></li>
+                      
+                  </ul>
+              </li>
+              <li class="menu-item-has-children dropdown {{ classActivePath('admin/managepost') }}{{ classActivePath('admin/editpost') }}{{ classActivePath('admin/addpost') }}">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Post</a>
+                  <ul class="sub-menu children dropdown-menu">
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addpost') }}">Add Post</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managepost') }}">Manage Post</a></li>
                       
                   </ul>
               </li>

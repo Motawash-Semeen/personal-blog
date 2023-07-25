@@ -117,6 +117,11 @@
                   </div>
               </div>
           </div>
+          <div class="language-select" id="language-select">
+              <a class="" href="{{ url('/') }}"  id="language" title="Go to Site">
+                  <i class="w-6 h-6 ti-desktop"></i>
+              </a>
+          </div>
 
       </div>
   </div>
