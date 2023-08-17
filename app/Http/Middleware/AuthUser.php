@@ -20,7 +20,7 @@ class AuthUser
         if(Auth::check()){
             $id = Auth::user()->id;
             $user = User::find($id);
-            view()->share('user', $user);
+            view()->share('log_user', $user);
             return $next($request);
         }
         return redirect()->route('login');

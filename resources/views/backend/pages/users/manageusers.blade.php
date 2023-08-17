@@ -63,7 +63,7 @@
                                     <td style="width: 200px">{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        <img src="@if ($user->image == NULL){{ asset('assets/imgs') }}/avatar-3.jpg" @else {{ asset('backend/images/user') }}/{{ $user->image }}"
+                                        <img src="@if ($user->profile_image == NULL){{ asset('assets/imgs') }}/avatar-3.jpg" @else {{ asset('backend/images/') }}{{ "/" }}{{ $user->profile_image }}"
                                         @endif alt="{{ $user->name.'-image' }}" style="width: 100px">
                                     </td>
                                     {{-- <td>{{ $user->getRoleNames() }}</td> --}}

@@ -85,11 +85,12 @@
       <div class="col-sm-5">
           <div class="user-area dropdown float-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="user-avatar rounded-circle" alt="avatar" src="{{ $user->profile_image ? asset('backend/images/'.$user->profile_image) : 'https://bootdey.com/img/Content/avatar/avatar6.png' }}">
+                <img class="user-avatar rounded-circle" alt="avatar" src="{{ $log_user->profile_image ? asset('backend/images/'.$log_user->profile_image) : 'https://bootdey.com/img/Content/avatar/avatar6.png' }}">
               </a>
 
               <div class="user-menu dropdown-menu">
-                  <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                  <a class="nav-link" href="{{ url('admin/profile') }}"><i class="fa fa-user"></i> Profile</a>
 
                   <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
 

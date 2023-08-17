@@ -84,7 +84,7 @@
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Password</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="text-input" name="password" class="form-control">
+                            <input type="password" id="text-input" name="password" class="form-control">
                             @error('password')
                         <p class="text-danger m-0">Please Provide a Password.(Atlest 3 words)!!</p>
                     @enderror
@@ -95,7 +95,7 @@
                                 Password</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="text" id="text-input" name="confirm_password" class="form-control">
+                            <input type="password" id="text-input" name="confirm_password" class="form-control">
                             @error('confirm_password')
                         <p class="text-danger m-0">Password and Confirm Password doesn't match!!</p>
                     @enderror
