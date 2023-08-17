@@ -46,6 +46,7 @@
                       <p class="red">You have 4 Mails</p>
                       <a class="dropdown-item media bg-flat-color-1" href="#">
                       <span class="photo media-left"><img alt="avatar" src="{{ asset('backend') }}/images/avatar/1.jpg"></span>
+                      
                       <span class="message media-body">
                           <span class="name float-left">Jonathan Smith</span>
                           <span class="time float-right">Just now</span>
@@ -84,7 +85,7 @@
       <div class="col-sm-5">
           <div class="user-area dropdown float-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img class="user-avatar rounded-circle" src="{{ asset('backend') }}/images/admin.jpg" alt="User Avatar">
+                <img class="user-avatar rounded-circle" alt="avatar" src="{{ $user->profile_image ? asset('backend/images/'.$user->profile_image) : 'https://bootdey.com/img/Content/avatar/avatar6.png' }}">
               </a>
 
               <div class="user-menu dropdown-menu">

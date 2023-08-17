@@ -10,9 +10,9 @@
         <div class="socials mb-3 mt-2">
             <a href="javascript:void(0)"><i class="ti-facebook"></i></a>
             <a href="javascript:void(0)"><i class="ti-twitter"></i></a>
-            <a href="javascript:void(0)"><i class="ti-pinterest-alt"></i></a>
+            <a href="javascript:void(0)"><i class="ti-dribbble"></i></a>
             <a href="javascript:void(0)"><i class="ti-instagram"></i></a>
-            <a href="javascript:void(0)"><i class="ti-youtube"></i></a>
+            <a href="javascript:void(0)"><i class="ti-linkedin"></i></a>
         </div>
         <p class="text-center p-100">Founder of WowThemes.net and creator of "Mediumish" theme that you're currently
             previewing. I professionally develop premium themes, templates & scripts since the Apocalypse (2012). You can

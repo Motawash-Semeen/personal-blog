@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 class AuthUser
 {
     /**
@@ -18,6 +18,9 @@ class AuthUser
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            view()->share('user', $user);
             return $next($request);
         }
         return redirect()->route('login');

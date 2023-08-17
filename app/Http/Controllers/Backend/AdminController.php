@@ -45,4 +45,15 @@ class AdminController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function profile()
+    {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $role = $user->getRoleNames();
+        //dd($role);
+        return view('backend.pages.profile_view', compact('user', 'role'));
+        // return $this->sharedVariable;
+    }
+    
 }

@@ -27,8 +27,8 @@ Route::get('/post', [FrontendController::class,'singlePost']);
 Route::get('/author', [FrontendController::class,'author']);
 Route::get('/login', [FrontendController::class, 'login'])->name('login');
 Route::post('/login', [AdminController::class, 'login']);
-Route::get('/logout', [AdminController::class, 'logout']);
-Route::get('/register', [FrontendController::class, 'register']);
+Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('/register', [FrontendController::class, 'register'])->name('register');
 Route::post('/register', [AdminController::class, 'register']);
 
 
@@ -47,6 +47,11 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/deleteuser/{id}', [UserController::class, 'deleteUser']);
     Route::get('/edituser/{id}', [UserController::class, 'editUser']);
     Route::post('/edituser/{id}', [UserController::class, 'updateUser']);
+
+    Route::get('/profile', [AdminController::class, 'profile']);
+    Route::post('/profile', [UserController::class, 'update_profile']);
+    Route::post('/image_upload', [UserController::class, 'update_image']);
+
 
     Route::get('/addpost', [PostController::class, 'addPost']);
     Route::post('/addpost', [PostController::class, 'storePost']);
