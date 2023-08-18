@@ -19,6 +19,7 @@ class CategoryController extends Controller
         ]);
         $category = new Category();
         $category->name = $request->name;
+        $category->status = $request->status;
         $category->save();
         session()->flash('message', 'Category created successfully!');
         return redirect('admin/managecategory');
@@ -26,7 +27,7 @@ class CategoryController extends Controller
     public function manageCate()
     {
         $categories = Category::all();
-        return view('backend.pages.categories.managecategories', compact('categories'));
+        return view('backend.pages.categories.managecategory', compact('categories'));
     }
     public function deleteCate($id)
     {
@@ -46,8 +47,20 @@ class CategoryController extends Controller
         ]);
         $category = Category::find($id);
         $category->name = $request->name;
-        $category->save();
+        $category->status = $request->status;
+        $category->update();
         session()->flash('message', 'Category updated successfully!');
+        return redirect('admin/managecategory');
+    }
+    public function statusCate($id)
+    {
+        $category = Category::find($id);
+        if ($category->status == 1) {
+            $category->status = 0;
+        } else {
+            $category->status = 1;
+        }
+        $category->update();
         return redirect('admin/managecategory');
     }
     

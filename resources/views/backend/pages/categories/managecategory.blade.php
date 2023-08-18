@@ -38,51 +38,40 @@
 
                 <div class="col-md-12">
                   <div class="d-flex justify-content-end align-items-center w-100 mb-3">
-                    <a href="{{ url('admin/addrole') }}" class="all bg-success text-white p-2 rounded" title="Add">
-                      <i class="ti-plus h-6 w-6 mr-1"></i>Add Role
+                    <a href="{{ url('admin/addcategory') }}" class="all bg-success text-white p-2 rounded" title="Add">
+                      <i class="ti-plus h-6 w-6 mr-1"></i>Add Category
                     </a>
                   </div>
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
+                            <strong class="card-title">Category Table</strong>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Role Name</th>
-                                        <th>Permissions</th>
+                                        <th>Category Name</th>
+                                        <th>Category Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($roles as $role)
+                                  @foreach ($categories as $category)
                                   <tr>
-                                    <td style="width: 120px">{{ $role->name }}</td>
-                                    <td ><button id="showPerIcon{{ $role->id }}" onclick="permissionShow('show', {{ $role->id }})" type="button"
-                                      data-tooltip-target="show-button" data-bs-toggle="tooltip"
-                                      data-bs-placement="top">
-                                      <i class="ti-plus w-6 h-6"></i>
-                                  </button>
-                                  <button class="hidden" id="hidePerIcon{{ $role->id }}" onclick="permissionShow('hide', {{ $role->id }})"
-                                      type="button" data-tooltip-target="hide-button" data-bs-toggle="tooltip"
-                                      data-bs-placement="top">
-                                      <i class="ti-minus w-6 h-6"></i>
-                                  </button>
-                                  <div id="permission{{ $role->id }}" class="hidden d-flex align-items-center flex-wrap">
-                                      @foreach ($role->permissions as $item)
-                                           <div class="bg-info text-white p-1 rounded m-2">
-                                          {{ $item->name }}
-                                      </div>   
-                                          @endforeach
-                                      
-                                  </div>
+                                    <td>{{ $category->name }}</td>
+                                    <td >
+                                      @if ($category->status == 1)
+                                      <a href="{{ url('admin/statusCate') }}/{{ $category->id }}" class="badge badge-success p-2">Active</a>
+                                      @else
+                                      <a href="{{ url('admin/statusCate') }}/{{ $category->id }}" class="badge badge-success p-2">Inactive</a>
+                                      @endif
+                                  
                                 </td>
                                     <td style="width: 120px">
-                                        <a href="{{ url('admin/editrole') }}/{{ $role->id }}"
+                                        <a href="{{ url('admin/editcategory') }}/{{ $category->id }}"
                                             class="btn btn-icon waves-effect waves-light btn-success mb-2"
                                             data-toggle="tooltip" title="title"> <i class="fa fa-edit"></i> </a>
-                                        <a href="{{ url('admin/deleterole') }}/{{ $role->id }}" class="btn btn-icon waves-effect waves-light btn-danger mb-2"
+                                        <a href="{{ url('admin/deletecategory') }}/{{ $category->id }}" class="btn btn-icon waves-effect waves-light btn-danger mb-2"
                                             onclick="return confirm('delete?')" data-toggle="tooltip" title="title"> <i
                                                 class="fa fa-remove"></i> </a>
                                     </td>

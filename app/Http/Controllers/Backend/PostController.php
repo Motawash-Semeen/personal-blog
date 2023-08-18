@@ -12,7 +12,8 @@ class PostController extends Controller
     public function addPost()
     {
         $categories = Category::all();
-        return view('backend.pages.posts.addpost', compact('categories'));
+        $posts = Post::all();
+        return view('backend.pages.posts.addpost', compact('categories', 'posts'));
     }
     public function storePost(Request $request)
     {
@@ -20,10 +21,19 @@ class PostController extends Controller
             'title' => 'required|min:3',
             'description' => 'required',
             'image' => 'required',
+            'tags' => 'required',
+            'category' => 'required',
+            'date' => 'required',
         ]);
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->user_id = $request->author;
+        $post->category_id = $request->category;
+        $post->tags = $request->tags;
+        $post->status = $request->status;
+        $post->published_at = $request->date;
+        
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension(); // getting image extension
@@ -73,6 +83,17 @@ class PostController extends Controller
         }	
         $post->save();
         session()->flash('message', 'Post Updated Successfully');
+        return redirect('admin/managepost');
+    }
+    public function statusPost($id)
+    {
+        $post = Post::find($id);
+        if($post->status == 1){
+            $post->status = 0;
+        }else{
+            $post->status = 1;
+        }
+        $post->save();
         return redirect('admin/managepost');
     }
 }

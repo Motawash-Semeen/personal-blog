@@ -1,3 +1,5 @@
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 <script src="{{ asset('backend') }}/vendors/jquery/dist/jquery.min.js"></script>
 <script src="{{ asset('backend') }}/vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="{{ asset('backend') }}/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -9,8 +11,7 @@
 <script src="{{ asset('backend') }}/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
 <script src="{{ asset('backend') }}/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
 <script src="{{ asset('backend') }}/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-<script src="https://cdn.tiny.cloud/1/mziw4xlz9cx95qsc2sjafghfgiq725du8dp4rmowat0s3ogf/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
+
 <script>
     (function($) {
         "use strict";

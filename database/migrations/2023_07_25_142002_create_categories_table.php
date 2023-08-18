@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->string('name');
-            $table->string('slug')->nullable();
             $table->integer('status')->default(0);
-            $table->integer('is_menu')->default(0);
             $table->timestamps();
         });
     }

@@ -69,3 +69,5 @@ var close = document.querySelector(".close").addEventListener("click", function 
     document.querySelector(".alert-dismissible").style.display = "none";
 });
 
+
+

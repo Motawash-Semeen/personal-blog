@@ -59,6 +59,7 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/deletepost/{id}', [PostController::class, 'deletePost']);
     Route::get('/editpost/{id}', [PostController::class, 'editPost']);
     Route::post('/editpost/{id}', [PostController::class, 'updatePost']);
+    Route::get('/statusPost/{id}', [PostController::class, 'statusPost']);
 
     Route::get('/addcategory', [CategoryController::class, 'addCate']);
     Route::post('/addcategory', [CategoryController::class, 'storeCate']);
@@ -66,6 +67,8 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/deletecategory/{id}', [CategoryController::class, 'deleteCate']);
     Route::get('/editcategory/{id}', [CategoryController::class, 'editCate']);
     Route::post('/editcategory/{id}', [CategoryController::class, 'updateCate']);
+    Route::get('/statusCate/{id}', [CategoryController::class, 'statusCate']);
+
 });
 
 

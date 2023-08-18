@@ -25,8 +25,7 @@ return new class extends Migration
             $table->integer('view_count')->default(0);
             $table->integer('comment_count')->default(0);
             $table->date('published_at');
-            $table->integer('is_featured')->default(0);
-            $table->integer('is_gallery')->default(0);
+            
 
             $table->timestamps();
         });
