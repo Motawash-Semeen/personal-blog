@@ -1,122 +1,6 @@
 @extends('backend.master')
 @section('content')
-    <style>
-        .file-upload {
-            background-color: #ffffff;
-            width: 100%;
-            margin: 0 auto;
-        }
 
-        .file-upload-btn {
-            width: 100%;
-            margin: 0;
-            color: #fff;
-            background: #b1b1b1;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            transition: all .2s ease;
-            outline: none;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .file-upload-btn:hover {
-            background: #b1b1b1;
-            color: #ffffff;
-            transition: all .2s ease;
-            cursor: pointer;
-        }
-
-        .file-upload-btn:active {
-            border: 0;
-            transition: all .2s ease;
-        }
-
-        .file-upload-content {
-            display: none;
-            text-align: center;
-        }
-
-        .file-upload-input {
-            position: absolute;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            outline: none;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .image-upload-wrap {
-            margin-top: 20px;
-            border: 2px dashed #b1b1b1;
-            position: relative;
-        }
-
-        .image-dropping,
-        .image-upload-wrap:hover {
-            background-color: #b1b1b1;
-            border: 2px dashed #ffffff;
-            color: #ffffff !important;
-        }
-        
-        .image-upload-wrap:hover .drag-text h3{
-            
-            color: #ffffff !important;
-        }
-
-        .image-title-wrap {
-            padding: 0 15px 15px 15px;
-            color: #222;
-        }
-
-        .drag-text {
-            text-align: center;
-        }
-
-        .drag-text h3 {
-            font-weight: 100;
-            text-transform: uppercase;
-            color: #b1b1b1;
-            padding: 60px 0;
-        }
-
-        .file-upload-image {
-            max-height: 200px;
-            max-width: 200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .remove-image {
-            width: 200px;
-            margin: 0;
-            color: #fff;
-            background: #cd4535;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            border-bottom: 4px solid #b02818;
-            transition: all .2s ease;
-            outline: none;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .remove-image:hover {
-            background: #c13b2a;
-            color: #ffffff;
-            transition: all .2s ease;
-            cursor: pointer;
-        }
-
-        .remove-image:active {
-            border: 0;
-            transition: all .2s ease;
-        }
-    </style>
     <div class="breadcrumbs">
         <div class="col-sm-4">
             <div class="page-header float-left">
@@ -174,21 +58,10 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <div class="file-upload">
-                                <button class="file-upload-btn" type="button"
-                                    onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-        
-                                <div class="image-upload-wrap">
-                                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="image"/>
-                                    <div class="drag-text">
-                                        <h3>Drag and drop a file or select add Image</h3>
-                                    </div>
-                                </div>
-                                <div class="file-upload-content">
-                                    <img class="file-upload-image" src="#" alt="your image" />
-                                    <div class="image-title-wrap">
-                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
-                                                class="image-title">Uploaded Image</span></button>
-                                    </div>
+                                <div class="file-select">
+                                    <div class="file-select-button" id="fileName">Choose File</div>
+                                    <div class="file-select-name" id="noFile">No file chosen...</div>
+                                    <input type="file" name="site_logo" id="chooseFile">
                                 </div>
                             </div>
                         </div>

@@ -67,7 +67,7 @@
                                     @foreach ($posts as $post)
                                         <tr>
                                             <td>{{ $post->title }}</td>
-                                            <td>{!! $post->description !!}
+                                            <td>{{ strip_tags(substr($post->description,0,200)) }}...
                                             </td>
                                             <td>
                                                 <img src="{{ $post->image ? asset('backend/images/post').'/'.$post->image : asset('backend/images/post/na.png') }}" alt="">

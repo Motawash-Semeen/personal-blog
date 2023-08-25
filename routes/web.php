@@ -3,8 +3,11 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\HomeSectionController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\SMTPController;
+use App\Http\Controllers\Backend\SocialController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +71,12 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
     Route::get('/editcategory/{id}', [CategoryController::class, 'editCate']);
     Route::post('/editcategory/{id}', [CategoryController::class, 'updateCate']);
     Route::get('/statusCate/{id}', [CategoryController::class, 'statusCate']);
+
+
+    Route::get('/smtp', [SMTPController::class, 'index']);
+    Route::post('/smtp', [SMTPController::class, 'update']);
+    Route::get('/homeSection', [HomeSectionController::class, 'index']);
+    Route::post('/homeSection', [HomeSectionController::class, 'update']);
 
 });
 

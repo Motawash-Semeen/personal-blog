@@ -65,6 +65,22 @@ function permissionShow(param, id) {
         hidePerIcon.classList.add("hidden");
     }
 }
+
+
+$("#chooseFile").on("change", function() {
+    var filename = this.value.split("\\").pop();
+    $(".file-upload").toggleClass("active", !!filename);
+    $("#noFile").text(filename || "No file chosen...");
+});
+
+
+$("#favicon").on("change", function() {
+    var filename = this.value.split("\\").pop();
+    $(".favicon-upload").toggleClass("active", !!filename);
+    $("#noFiles").text(filename || "No file chosen...");
+});
+
+
 var close = document.querySelector(".close").addEventListener("click", function () {
     document.querySelector(".alert-dismissible").style.display = "none";
 });

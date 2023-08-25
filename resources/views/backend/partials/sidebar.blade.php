@@ -79,6 +79,12 @@
                       
                   </ul>
               </li>
+              <li class=" {{ classActivePath('admin/homeSection') }}">
+                  <a href="{{ url('admin/homeSection') }}" class=""> <i class="menu-icon ti-eye"></i>Home Section</a>
+              </li>
+              <li class=" {{ classActivePath('admin/smtp') }}">
+                  <a href="{{ url('admin/smtp') }}" class=""> <i class="menu-icon ti-eye"></i>SMTP Setup</a>
+              </li>
               <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
               <li class="menu-item-has-children dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>

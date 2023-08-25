@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function addPost()
     {
-        $categories = Category::all();
+        $categories = Category::where('status', 1)->get();
         $posts = Post::all();
         return view('backend.pages.posts.addpost', compact('categories', 'posts'));
     }
@@ -20,7 +21,6 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
-            'image' => 'required',
             'tags' => 'required',
             'category' => 'required',
             'date' => 'required',
@@ -31,7 +31,7 @@ class PostController extends Controller
         $post->user_id = $request->author;
         $post->category_id = $request->category;
         $post->tags = $request->tags;
-        $post->status = $request->status;
+        $post->status? $post->status = $request->status:'';
         $post->published_at = $request->date;
         
         if($request->hasFile('image')){
@@ -47,6 +47,7 @@ class PostController extends Controller
     }
     public function managePost()
     {
+        
         $posts = Post::all();
         return view('backend.pages.posts.manageposts', compact('posts'));
     }
@@ -59,18 +60,25 @@ class PostController extends Controller
     public function editPost($id)
     {
         $post = Post::find($id);
-        $categories = Category::all();
-        return view('backend.pages.posts.editpost', compact('post', 'categories'));
+        $categories = Category::where('status',1)->get();
+        $user = User::where('id', $post->user_id)->first();
+        return view('backend.pages.posts.editpost', compact('post', 'categories', 'user'));
     }
     public function updatePost(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
+            'category' => 'required',
         ]);
         $post = Post::find($id);
         $post->title = $request->title;
         $post->description = $request->description;
+        $post->user_id = $request->author;
+        $post->category_id = $request->category;
+        $post->tags = $request->tags;
+        $post->status = $request->status;
+        $post->published_at = $request->date;
         if($request->hasFile('image')){
             if(file_exists('backend/images/post/'.$post->image)){
                 unlink('backend/images/post/'.$post->image);
