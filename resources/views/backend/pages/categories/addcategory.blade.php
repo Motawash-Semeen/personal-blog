@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-body card-block">
 
-                    <h3>Update User</h3>
+                    <h3 class="mb-5">Add Category</h3>
                     <div class="row form-group my-4">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Category Name</label>
                         </div>

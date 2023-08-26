@@ -119,9 +119,9 @@
                   </div>
               </div>
           </div>
-          <div class="language-select" id="language-select">
+          <div class="language-select d-flex align-items-center justify-content-center" id="language-select">
               <a class="" href="{{ url('/') }}"  id="language" title="Go to Site">
-                  <i class="w-6 h-6 ti-desktop"></i>
+                  <i class="ti-desktop" style="font-size: 24px"></i>
               </a>
           </div>
 

@@ -14,37 +14,6 @@
               <li class="{{ classActivePath('admin') }}">
                   <a href="{{ url('admin') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
               </li>
-              <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
-              <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
-                  <ul class="sub-menu children dropdown-menu">
-                      <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                      <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-                      <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
-                      <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">Social Buttons</a></li>
-                      <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-                      <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-                      <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-                      <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-                      <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-                      <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                      <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
-                  </ul>
-              </li>
-              <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
-                  <ul class="sub-menu children dropdown-menu">
-                      <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                      <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
-                  </ul>
-              </li>
-              <li class="menu-item-has-children dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
-                  <ul class="sub-menu children dropdown-menu">
-                      <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                      <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
-                  </ul>
-              </li>
 
               <h3 class="menu-title">Function</h3><!-- /.function-title -->
               <li class="menu-item-has-children dropdown {{ classActivePath('admin/managerole') }}{{ classActivePath('admin/editrole') }}{{ classActivePath('admin/addrole') }}">
@@ -56,7 +25,7 @@
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown {{ classActivePath('admin/manageuser') }}{{ classActivePath('admin/edituser') }}{{ classActivePath('admin/adduser') }}">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>User</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-user"></i>User</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/adduser') }}">Add User</a></li>
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/manageuser') }}">Manage User</a></li>
@@ -64,7 +33,7 @@
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown {{ classActivePath('admin/managepost') }}{{ classActivePath('admin/editpost') }}{{ classActivePath('admin/addpost') }}">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Post</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-menu-alt"></i>Post</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addpost') }}">Add Post</a></li>
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managepost') }}">Manage Post</a></li>
@@ -72,7 +41,7 @@
                   </ul>
               </li>
               <li class="menu-item-has-children dropdown {{ classActivePath('admin/managecategory') }}{{ classActivePath('admin/editcategory') }}{{ classActivePath('admin/addcategory') }}">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Category</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-layers-alt"></i>Category</a>
                   <ul class="sub-menu children dropdown-menu">
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addcategory') }}">Add Category</a></li>
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/managecategory') }}">Manage Category</a></li>
@@ -81,26 +50,26 @@
               </li>
               
               <li class="menu-item-has-children dropdown {{ classActivePath('admin/home-gallaries') }}{{ classActivePath('admin/edit-gallaries') }}{{ classActivePath('admin/add-gallaries') }}">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Gallary</a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-gallery"></i>Gallary</a>
                   <ul class="sub-menu children dropdown-menu">
-                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addcategory') }}">Add Gallary</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/add-gallaries') }}">Add Gallary</a></li>
                       <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/home-gallaries') }}">Manage Gallary</a></li>
                       
                   </ul>
               </li>
               
               <li class="{{ classActivePath('admin/comments') }}{{ classActivePath('admin/edit-comments') }}">
-                  <a href="{{ url('admin/comments') }}" class=""> <i class="menu-icon ti-eye"></i>Comments</a>
+                  <a href="{{ url('admin/comments') }}" class=""> <i class="menu-icon ti-comments-smiley"></i>Comments</a>
               </li>
               <li class=" {{ classActivePath('admin/home-section') }}">
-                  <a href="{{ url('admin/home-section') }}" class=""> <i class="menu-icon ti-eye"></i>Home Section</a>
+                  <a href="{{ url('admin/home-section') }}" class=""> <i class="menu-icon ti-layout-media-right-alt"></i>Home Section</a>
               </li>
               
               <li class=" {{ classActivePath('admin/site-settings') }}">
-                  <a href="{{ url('admin/site-settings') }}" class=""> <i class="menu-icon ti-eye"></i>Site Settings</a>
+                  <a href="{{ url('admin/site-settings') }}" class=""> <i class="menu-icon ti-settings"></i>Site Settings</a>
               </li>
               <li class=" {{ classActivePath('admin/smtp') }}">
-                  <a href="{{ url('admin/smtp') }}" class=""> <i class="menu-icon ti-eye"></i>SMTP Setup</a>
+                  <a href="{{ url('admin/smtp') }}" class=""> <i class="menu-icon ti-slice"></i>SMTP Setup</a>
               </li>
               <h3 class="menu-title">Extras</h3><!-- /.menu-title -->
               <li class="menu-item-has-children dropdown">
