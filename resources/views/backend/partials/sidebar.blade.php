@@ -79,8 +79,25 @@
                       
                   </ul>
               </li>
-              <li class=" {{ classActivePath('admin/homeSection') }}">
-                  <a href="{{ url('admin/homeSection') }}" class=""> <i class="menu-icon ti-eye"></i>Home Section</a>
+              
+              <li class="menu-item-has-children dropdown {{ classActivePath('admin/home-gallaries') }}{{ classActivePath('admin/edit-gallaries') }}{{ classActivePath('admin/add-gallaries') }}">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon ti-eye"></i>Gallary</a>
+                  <ul class="sub-menu children dropdown-menu">
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/addcategory') }}">Add Gallary</a></li>
+                      <li><i class="menu-icon ti-view-list-alt"></i><a href="{{ url('admin/home-gallaries') }}">Manage Gallary</a></li>
+                      
+                  </ul>
+              </li>
+              
+              <li class="{{ classActivePath('admin/comments') }}{{ classActivePath('admin/edit-comments') }}">
+                  <a href="{{ url('admin/comments') }}" class=""> <i class="menu-icon ti-eye"></i>Comments</a>
+              </li>
+              <li class=" {{ classActivePath('admin/home-section') }}">
+                  <a href="{{ url('admin/home-section') }}" class=""> <i class="menu-icon ti-eye"></i>Home Section</a>
+              </li>
+              
+              <li class=" {{ classActivePath('admin/site-settings') }}">
+                  <a href="{{ url('admin/site-settings') }}" class=""> <i class="menu-icon ti-eye"></i>Site Settings</a>
               </li>
               <li class=" {{ classActivePath('admin/smtp') }}">
                   <a href="{{ url('admin/smtp') }}" class=""> <i class="menu-icon ti-eye"></i>SMTP Setup</a>

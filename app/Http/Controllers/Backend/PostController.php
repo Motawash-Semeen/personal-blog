@@ -18,6 +18,9 @@ class PostController extends Controller
     }
     public function storePost(Request $request)
     {
+        // $file = $request->file('image');
+        // $extension = $file->getClientOriginalName();
+        // return $extension;
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
@@ -66,6 +69,7 @@ class PostController extends Controller
     }
     public function updatePost(Request $request, $id)
     {
+        
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
@@ -89,7 +93,7 @@ class PostController extends Controller
             $file->move('backend/images/post/', $filename);
             $post->image = $filename;
         }	
-        $post->save();
+        $post->update();
         session()->flash('message', 'Post Updated Successfully');
         return redirect('admin/managepost');
     }

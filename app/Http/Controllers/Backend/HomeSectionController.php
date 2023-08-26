@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeSection;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeSectionController extends Controller
@@ -15,8 +16,9 @@ class HomeSectionController extends Controller
      */
     public function index()
     {
-        $home = HomeSection::find(1);
-        return view('backend.pages.homesection.managesection',compact('home'));
+        $posts = Post::where('status',1)->orderBy('id','desc')->get();
+        $homes = HomeSection::all();
+        return view('backend.pages.homesections.managesection',compact('homes','posts'));
     }
 
     /**
@@ -59,7 +61,9 @@ class HomeSectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts = Post::where('status',1)->orderBy('id','desc')->get();
+        $home = HomeSection::find($id);
+        return view('backend.pages.homesections.editsection',compact('home','posts'));
     }
 
     /**
@@ -69,46 +73,37 @@ class HomeSectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        
-       $home = HomeSection::find(1);
-       $home->time_zone = $request->time_zone;
-       $home->default_language = $request->default_language;
-       $home->site_name = $request->site_name;
-       $home->site_email = $request->site_email;
-       $home->site_description = $request->site_description;
-       $home->site_keywords = $request->site_keywords;
-       $home->site_copyright = $request->site_copyright;
-       $home->web_fb_link = $request->web_fb_link;
-       $home->web_twitter_link = $request->web_twitter_link;
-       $home->web_instagram_link = $request->web_instagram_link;
-       $home->web_linkedin_link = $request->web_linkedin_link;
-       $home->web_youtube_link = $request->web_youtube_link;
+        $request->validate([
+             
+                'featured_title' => 'required',
+                'featured_post_id' => 'required',
+                'featured_status' => 'required',
+                'featured_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-       if($request->hasFile('site_logo')){
-        if(file_exists('backend/images/logo/'.$home->site_logo)){
-            unlink('backend/images/logo/'.$home->site_logo);
-        }
-        $file = $request->file('site_logo');
-        $extension = $file->getClientOriginalExtension(); // getting image extension
-        $filename = time() . '-logo.' . $extension;
-        $file->move('backend/images/logo/', $filename);
-        $home->site_logo = $filename;
-    }
-       if($request->hasFile('site_favicon')){
-        if(file_exists('backend/images/favicon/'.$home->site_favicon)){
-            unlink('backend/images/favicon/'.$home->site_favicon);
-        }
-        $file = $request->file('site_favicon');
-        $extension = $file->getClientOriginalExtension(); // getting image extension
-        $filename = time() . '-icon.' . $extension;
-        $file->move('backend/images/favicon/', $filename);
-        $home->site_favicon = $filename;
-    }
-       $home->save();
-       session()->flash('message', 'Home Section Updated Successfully');
-       return redirect('admin/homeSection');
+        
+        $home = HomeSection::find($id);
+        $home->featured_title = $request->featured_title;
+        $home->featured_post_id = $request->featured_post_id;
+        $home->featured_status = $request->featured_status;
+
+ 
+        if($request->hasFile('featured_image')){
+         if(file_exists('backend/images/featured/'.$home->featured_image)){
+             unlink('backend/images/featured/'.$home->featured_image);
+         }
+         $file = $request->file('featured_image');
+         $extension = $file->getClientOriginalExtension(); // getting image extension
+         $filename = time() . '-featured.' . $extension;
+         $file->move('backend/images/featured/', $filename);
+         $home->featured_image = $filename;
+     }
+
+        $home->save();
+        session()->flash('message', 'home Section Updated Successfully');
+        return redirect('admin/home-section');
     }
 
     /**
@@ -117,8 +112,15 @@ class HomeSectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function status($id)
     {
-        //
+        $section = HomeSection::find($id);
+        if($section->featured_status == 1){
+            $section->featured_status = 0;
+        }else{
+            $section->featured_status = 1;
+        }
+        $section->save();
+        return redirect('admin/home-section');
     }
 }

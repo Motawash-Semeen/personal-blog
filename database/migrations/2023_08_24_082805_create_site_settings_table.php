@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('home_sections', function (Blueprint $table) {
+        Schema::create('site_settings', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->string('time_zone', 255);
             $table->string('default_language', 255);
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_sections');
+        Schema::dropIfExists('site_settings');
     }
 };

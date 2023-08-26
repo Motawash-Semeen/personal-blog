@@ -61,7 +61,7 @@
                                 <div class="file-select">
                                     <div class="file-select-button" id="fileName">Choose File</div>
                                     <div class="file-select-name" id="noFile">No file chosen...</div>
-                                    <input type="file" name="site_logo" id="chooseFile">
+                                    <input type="file" name="image" id="chooseFile">
                                 </div>
                             </div>
                         </div>

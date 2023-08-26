@@ -3,9 +3,12 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CommentsController;
+use App\Http\Controllers\Backend\GallaryController;
 use App\Http\Controllers\Backend\HomeSectionController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\SiteController;
 use App\Http\Controllers\Backend\SMTPController;
 use App\Http\Controllers\Backend\SocialController;
 use App\Http\Controllers\Backend\UserController;
@@ -75,8 +78,32 @@ Route::prefix('admin')->middleware(['logincheck'])->group(function () {
 
     Route::get('/smtp', [SMTPController::class, 'index']);
     Route::post('/smtp', [SMTPController::class, 'update']);
-    Route::get('/homeSection', [HomeSectionController::class, 'index']);
-    Route::post('/homeSection', [HomeSectionController::class, 'update']);
+    Route::get('/site-settings', [SiteController::class, 'index']);
+    Route::post('/site-settings', [SiteController::class, 'update']);
+
+
+    Route::get('/home-section', [HomeSectionController::class, 'index']);
+    Route::get('/edit-section/{id}', [HomeSectionController::class, 'edit']);
+    Route::post('/edit-section/{id}', [HomeSectionController::class, 'update']);
+    Route::get('/status-section/{id}', [HomeSectionController::class, 'status']);
+
+
+    Route::get('/home-gallaries', [GallaryController::class, 'index']);
+    Route::get('/add-gallaries', [GallaryController::class, 'create']);
+    Route::post('/add-gallaries', [GallaryController::class, 'store']);
+    Route::get('/edit-gallaries/{id}', [GallaryController::class, 'edit']);
+    Route::post('/edit-gallaries/{id}', [GallaryController::class, 'update']);
+    Route::get('/status-gallaries/{id}', [GallaryController::class, 'status']);
+    Route::get('/delete-gallaries/{id}', [GallaryController::class, 'destroy']);
+
+
+    Route::get('/comments', [CommentsController::class, 'index']);
+    //Route::get('/add-comments', [CommentsController::class, 'create']);
+    //Route::post('/add-comments', [CommentsController::class, 'store']);
+    Route::get('/edit-comments/{id}', [CommentsController::class, 'edit']);
+    Route::post('/edit-comments/{id}', [CommentsController::class, 'update']);
+    Route::get('/status-comments/{id}', [CommentsController::class, 'status']);
+    Route::get('/delete-comments/{id}', [CommentsController::class, 'destroy']);
 
 });
 

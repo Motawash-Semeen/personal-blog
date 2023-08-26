@@ -40,14 +40,16 @@
             <div class="card">
                 <div class="card-body card-block">
 
-                    <h3>Update Home Section</h3>
+                    <h3>Update Site Section</h3>
                     <div class="row form-group my-4">
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">Default Timezone*</label>
                         </div>
                         <div class="col-12 col-md-9">
                           <select name="time_zone" id="" class="form-control">
                             @foreach ( $timezones as $timezone )
-                            <option value="{{ $timezone }}">{{ $timezone }}</option>
+                            <option value="{{ $timezone }}" @if ($site->time_zone == $timezone)
+                                selected
+                            @endif>{{ $timezone }}</option>
                             @endforeach
                         </select>
                             @error('time_zone')
@@ -76,7 +78,7 @@
                         </div>
                         <div class="col-12 col-md-9">
                             <input type="text" id="text-input" name="site_name" class="form-control"
-                                value="{{ $home->site_name	 }}">
+                                value="{{ $site->site_name	 }}">
                             @error('site_name')
                                 <p class="text-danger m-0">Please Provide Site Name!!</p>
                             @enderror
@@ -94,7 +96,7 @@
                                         <input type="file" name="site_logo" id="chooseFile">
                                     </div>
                                 </div>
-                                <img src="{{ asset('backend/images/logo/'.$home->site_logo) }}" alt="" width="300" class="mt-3" style="border:1px solid rgb(207, 207, 207); padding:10px; border-radius:5px">
+                                <img src="{{ asset('backend/images/logo/'.$site->site_logo) }}" alt="" width="300" class="mt-3" style="border:1px solid rgb(207, 207, 207); padding:10px; border-radius:5px">
                             @error('site_logo')
                                 <p class="text-danger m-0">Please Provide Site Logo!!</p>
                             @enderror
@@ -111,7 +113,7 @@
                                     <div class="file-select-name" id="noFiles">No file chosen...</div>
                                     <input type="file" name="site_favicon" id="favicon">
                                 </div>
-                                <img src="{{ asset('backend/images/favicon/'.$home->site_favicon) }}" alt="" width="100" class="mt-3" style="border:1px solid rgb(207, 207, 207); padding:10px; border-radius:5px">
+                                <img src="{{ asset('backend/images/favicon/'.$site->site_favicon) }}" alt="" width="100" class="mt-3" style="border:1px solid rgb(207, 207, 207); padding:10px; border-radius:5px">
                             </div>
                             @error('site_favicon')
                                 <p class="text-danger m-0">Please Provide Site Favicon!!</p>
@@ -123,8 +125,8 @@
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email*</label>
                       </div>
                       <div class="col-12 col-md-9">
-                        <input type="text" id="text-input" name="site_email" class="form-control"
-                        value="{{ $home->site_email	 }}">
+                        <input type="email" id="text-input" name="site_email" class="form-control"
+                        value="{{ $site->site_email	 }}">
                           @error('site_email')
                               <p class="text-danger m-0">Please Provide Valid Email!!</p>
                           @enderror
@@ -134,7 +136,7 @@
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label">Description*</label>
                       </div>
                       <div class="col-12 col-md-9">
-                          <textarea name="site_description" class="form-control">{{ $home->site_description	 }}</textarea>
+                          <textarea name="site_description" class="form-control">{{ $site->site_description	 }}</textarea>
                           
                       </div>
                   </div>
@@ -142,7 +144,7 @@
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label">Site Keywords*</label>
                       </div>
                       <div class="col-12 col-md-9">
-                        <textarea name="site_keywords" class="form-control">{{ $home->site_keywords	 }}</textarea>
+                        <textarea name="site_keywords" class="form-control">{{ $site->site_keywords	 }}</textarea>
                           
                       </div>
                   </div>
@@ -150,7 +152,7 @@
                       <div class="col col-md-3"><label for="text-input" class=" form-control-label">Copyright Text*</label>
                       </div>
                       <div class="col-12 col-md-9">
-                        <textarea name="site_copyright" class="form-control">{{ $home->site_copyright	 }}</textarea>
+                        <textarea name="site_copyright" class="form-control">{{ $site->site_copyright	 }}</textarea>
                           
                       </div>
                   </div>
@@ -164,7 +166,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <input type="text" id="text-input" name="web_fb_link" class="form-control"
-                      value="{{ $home->web_fb_link ? $home->web_fb_link : "#"	 }}">
+                      value="{{ $site->web_fb_link ? $site->web_fb_link : "#"	 }}">
                         
                     </div>
                 </div><div class="row form-group my-4">
@@ -172,7 +174,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <input type="text" id="text-input" name="web_twitter_link" class="form-control"
-                      value="{{ $home->web_twitter_link ? $home->web_twitter_link : "#"	 }}">
+                      value="{{ $site->web_twitter_link ? $site->web_twitter_link : "#"	 }}">
                         
                     </div>
                 </div><div class="row form-group my-4">
@@ -180,7 +182,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <input type="text" id="text-input" name="web_instagram_link" class="form-control"
-                      value="{{ $home->web_instagram_link ? $home->web_instagram_link : "#"	 }}">
+                      value="{{ $site->web_instagram_link ? $site->web_instagram_link : "#"	 }}">
                         
                     </div>
                 </div>
@@ -189,7 +191,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <input type="text" id="text-input" name="web_linkedin_link" class="form-control"
-                      value="{{ $home->web_linkedin_link ? $home->web_linkedin_link : "#"	 }}">
+                      value="{{ $site->web_linkedin_link ? $site->web_linkedin_link : "#"	 }}">
                         
                     </div>
                 </div>
@@ -198,7 +200,7 @@
                     </div>
                     <div class="col-12 col-md-9">
                       <input type="text" id="text-input" name="web_youtube_link" class="form-control"
-                      value="{{ $home->web_youtube_link	? $home->web_youtube_link : "#" }}">
+                      value="{{ $site->web_youtube_link	? $site->web_youtube_link : "#" }}">
                         
                     </div>
                 </div>
