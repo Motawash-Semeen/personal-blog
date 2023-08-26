@@ -51,7 +51,7 @@ class PostController extends Controller
     public function managePost()
     {
         
-        $posts = Post::all();
+        $posts = Post::with('user','category')->get();
         return view('backend.pages.posts.manageposts', compact('posts'));
     }
     public function deletePost($id)

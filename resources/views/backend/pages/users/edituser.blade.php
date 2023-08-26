@@ -64,7 +64,13 @@
                         <div class="col col-md-3"><label for="text-input" class=" form-control-label">User Image</label>
                         </div>
                         <div class="col-12 col-md-9">
-                            <input type="file" id="text-input" name="image" class="form-control">
+                            <div class="file-upload">
+                                <div class="file-select">
+                                    <div class="file-select-button" id="fileName">Choose File</div>
+                                    <div class="file-select-name" id="noFile">No file chosen...</div>
+                                    <input type="file" name="image" id="chooseFile">
+                                </div>
+                            </div>
                             <img src="@if ($user->image == null) {{ asset('assets/imgs') }}/avatar-3.jpg" @else {{ asset('backend/images/user') }}/{{ $user->image }}" @endif alt="{{ $user->name . '-image' }}"
                                 style="width: 100px; margin: 10px 0px;">
                         </div>

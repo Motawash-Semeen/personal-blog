@@ -50,16 +50,14 @@
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Post Title</th>
-                                        <th>Post Description</th>
-                                        <th>Post Image</th>
-                                        <th>Post By</th>
-                                        <th>Post Category</th>
-                                        <th>Post Tags</th>
-                                        <th>Post Status</th>
-                                        <th>Post View</th>
-                                        <th>Post Comments</th>
-                                        <th>Post Published</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Image</th>
+                                        <th>By</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Statistic</th>
+                                        <th>Published</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -67,16 +65,24 @@
                                     @foreach ($posts as $post)
                                         <tr>
                                             <td>{{ $post->title }}</td>
-                                            <td>{{ strip_tags(substr($post->description,0,200)) }}...
+                                            <td>
+                                                @php
+                                                    $arrays = explode(",", $post->tags);
+                                                @endphp
+                                                @foreach ($arrays as $array)
+                                                <p class="btn  btn-info mb-2 rounded py-1 px-2"
+                                                data-toggle="tooltip" title="{{ $array }}">#{{ trim($array) }}</p>
+                                                @endforeach
+                                                
+                                                    <br>
+                                                {{ strip_tags(substr($post->description,0,200)) }}...
                                             </td>
                                             <td>
                                                 <img src="{{ $post->image ? asset('backend/images/post').'/'.$post->image : asset('backend/images/post/na.png') }}" alt="">
                                             </td>
-                                            <td>{{ $post->user_id }}
+                                            <td>{{ $post->user->name }}
                                             </td>
-                                            <td>{{ $post->category_id }}
-                                            </td>
-                                            <td>{{ $post->tags }}
+                                            <td>{{ $post->category->name }}
                                             </td>
                                             <td>
                                                 @if ($post->status == 1)
@@ -85,9 +91,9 @@
                                       <a href="{{ url('admin/statusPost') }}/{{ $post->id }}" class="badge badge-success p-2">Inactive</a>
                                       @endif
                                             </td>
-                                            <td>{{ $post->view_count }}
-                                            </td>
-                                            <td>{{ $post->comment_count }}
+                                            <td>
+                                                View- {{ $post->view_count }} <br>
+                                                Comments- {{ $post->comment_count }}
                                             </td>
                                             <td>{{ $post->published_at }}
                                             </td>
